@@ -9,7 +9,8 @@ describe 'Weather API' do
       to_return(status: 200, body: json_response)
 
     darksky_response = File.read('spec/fixtures/denver_darksky_data.json')
-    stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARKSKY_KEY']}/39.7392358,-104.990251?exclude=minutely,flags")
+    stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARKSKY_KEY']}/39.7392358,-104.990251?exclude=minutely,flags").
+    to_return(status: 200, body: darksky_response)
 
     get '/api/v1/forecast?location=denver,co'
     @info = JSON.parse(response.body)
@@ -21,16 +22,17 @@ describe 'Weather API' do
     expect(@info['data']['attributes']['city']).to eq("Denver, CO, USA")
   end
 
-  xit 'sends the current temperature' do
-
+  it 'sends the current temperature' do
+    expect(@info['data']['attributes']['current']['temp']).to eq(26)
   end
 
-  xit 'sends the current time and date' do
-
+  it 'sends the current time and date' do
+    expect(@info['data']['attributes']['current']['time']).to eq("12:10AM")
+    expect(@info['data']['attributes']['current']['date']).to eq("01/13")
   end
 
-  xit 'sends a string describing the current weather' do
-
+  it 'sends a string describing the current weather' do
+    expect(@info['data']['attributes']['current']['weather']).to eq("Clear")
   end
 
   xit 'sends a daily high and low' do
