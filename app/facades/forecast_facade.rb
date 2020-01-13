@@ -20,6 +20,7 @@ class ForecastFacade
   end
 
   def hourly
+    HourlyForecast.new(darksky_service.hourly).hourly_data
   end
 
   def weekly
