@@ -20,7 +20,7 @@ class AmypodeService
   end
 
   def antipode_data
-    response = conn.get('/antipodes') do |request|
+    response = conn.get('antipodes') do |request|
       request.params['lat'] = lat
       request.params['long'] = long
     end
