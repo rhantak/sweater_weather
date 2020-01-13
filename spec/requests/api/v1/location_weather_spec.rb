@@ -62,6 +62,8 @@ describe 'Weather API' do
   end
 
   it "sends information for a 5 day forecast" do
+    expect(@info['data']['attributes']['weekly'].count).to eq(7)
+
     expect(@info['data']['attributes']['weekly'][0]['day']).to eq("Tuesday")
     expect(@info['data']['attributes']['weekly'][1]['day']).to eq("Wednesday")
     expect(@info['data']['attributes']['weekly'][2]['day']).to eq("Thursday")
@@ -91,5 +93,19 @@ describe 'Weather API' do
     expect(@info['data']['attributes']['weekly'][1]['low']).to eq(24)
     expect(@info['data']['attributes']['weekly'][2]['low']).to eq(30)
     expect(@info['data']['attributes']['weekly'][3]['low']).to eq(22)
+  end
+
+  it "sends hourly temperature information" do
+    expect(@info['data']['attributes']['hourly'].length).to eq(24)
+
+    expect(@info['data']['attributes']['hourly'][0]['time']).to eq("12AM")
+    expect(@info['data']['attributes']['hourly'][1]['time']).to eq("01AM")
+    expect(@info['data']['attributes']['hourly'][2]['time']).to eq("02AM")
+    expect(@info['data']['attributes']['hourly'][3]['time']).to eq("03AM")
+
+    expect(@info['data']['attributes']['hourly'][0]['temp']).to eq(26)
+    expect(@info['data']['attributes']['hourly'][1]['temp']).to eq(25)
+    expect(@info['data']['attributes']['hourly'][2]['temp']).to eq(24)
+    expect(@info['data']['attributes']['hourly'][3]['temp']).to eq(24)
   end
 end
