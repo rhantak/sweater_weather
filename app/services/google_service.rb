@@ -8,7 +8,7 @@ class GoogleService
   end
 
   def lat_long
-    location_data(location)['geometry']['location']
+    location_data(location)['geometry']['location'].values.join(',')
   end
 
   private
