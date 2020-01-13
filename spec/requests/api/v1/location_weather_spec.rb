@@ -35,6 +35,22 @@ describe 'Weather API' do
     expect(@info['data']['attributes']['current']['weather']).to eq("Clear")
   end
 
+  it 'sends current feels like temperature' do
+    expect(@info['data']['attributes']['current']['feels_like']).to eq(26)
+  end
+
+  it "sends current humidity" do
+    expect(@info['data']['attributes']['current']['humidity']).to eq("44%")
+  end
+
+  it "sends current visibility" do
+    expect(@info['data']['attributes']['current']['visibility']).to eq("10.0 miles")
+  end
+
+  it "sends current uv index" do
+    expect(@info['data']['attributes']['current']['uv_index']).to eq(0)
+  end
+
   it 'sends a daily high and low' do
     expect(@info['data']['attributes']['daily']['high']).to eq(44)
     expect(@info['data']['attributes']['daily']['low']).to eq(23)
