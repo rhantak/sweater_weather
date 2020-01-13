@@ -12,7 +12,7 @@ class ForecastFacade
   end
 
   def current
-    binding.pry
+    CurrentForecast.new(darksky_service.current)
   end
 
   def daily
