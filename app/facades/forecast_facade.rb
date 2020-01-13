@@ -16,6 +16,7 @@ class ForecastFacade
   end
 
   def daily
+    DailyForecast.new(darksky_service.daily)
   end
 
   def hourly
