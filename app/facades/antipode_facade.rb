@@ -12,11 +12,11 @@ class AntipodeFacade
   end
 
   def forecast
-
+    AntipodeForecast.new(darksky_service.current)
   end
 
   def search_location
-
+    google_service.city
   end
 
   private
@@ -36,6 +36,6 @@ class AntipodeFacade
   end
 
   def darksky_service
-    @darksky_service ||= DarkskyService.new(google_service.lat_long)
+    @darksky_service ||= DarkskyService.new(antipode_location)
   end
 end
