@@ -23,6 +23,7 @@ class ForecastFacade
   end
 
   def weekly
+    WeeklyForecast.new(darksky_service.daily).weekly_data
   end
 
   private
