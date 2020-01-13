@@ -23,4 +23,11 @@ describe 'forecast facade' do
     expect(@facade.current.temp).to eq(26)
     expect(@facade.current.weather).to eq("Clear")
   end
+
+  it 'daily' do
+    expect(@facade.daily.high).to eq(44)
+    expect(@facade.daily.low).to eq(23)
+    expect(@facade.daily.today).to eq("Clear throughout the day.")
+    expect(@facade.daily.tonight).to eq("Clear")
+  end
 end

@@ -35,12 +35,14 @@ describe 'Weather API' do
     expect(@info['data']['attributes']['current']['weather']).to eq("Clear")
   end
 
-  xit 'sends a daily high and low' do
-
+  it 'sends a daily high and low' do
+    expect(@info['data']['attributes']['daily']['high']).to eq(44)
+    expect(@info['data']['attributes']['daily']['low']).to eq(23)
   end
 
-  xit 'sends strings for day time and night time weather' do
-
+  it 'sends strings for day time and night time weather' do
+    expect(@info['data']['attributes']['daily']['today']).to eq("Clear throughout the day.")
+    expect(@info['data']['attributes']['daily']['tonight']).to eq("Clear")
   end
 
   xit "sends information for a 5 day forecast" do
