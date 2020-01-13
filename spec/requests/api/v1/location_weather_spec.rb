@@ -45,7 +45,35 @@ describe 'Weather API' do
     expect(@info['data']['attributes']['daily']['tonight']).to eq("Clear")
   end
 
-  xit "sends information for a 5 day forecast" do
+  it "sends information for a 5 day forecast" do
+    expect(@info['data']['attributes']['weekly'][0]['day']).to eq("Tuesday")
+    expect(@info['data']['attributes']['weekly'][1]['day']).to eq("Wednesday")
+    expect(@info['data']['attributes']['weekly'][2]['day']).to eq("Thursday")
+    expect(@info['data']['attributes']['weekly'][3]['day']).to eq("Friday")
 
+    expect(@info['data']['attributes']['weekly'][0]['weather']).to eq("Clear throughout the day.")
+    expect(@info['data']['attributes']['weekly'][1]['weather']).to eq("Clear throughout the day.")
+    expect(@info['data']['attributes']['weekly'][2]['weather']).to eq("Mostly cloudy throughout the day.")
+    expect(@info['data']['attributes']['weekly'][3]['weather']).to eq("Clear throughout the day.")
+
+    expect(@info['data']['attributes']['weekly'][0]['precip_type']).to eq("snow")
+    expect(@info['data']['attributes']['weekly'][1]['precip_type']).to eq("snow")
+    expect(@info['data']['attributes']['weekly'][2]['precip_type']).to eq(nil)
+    expect(@info['data']['attributes']['weekly'][3]['precip_type']).to eq("snow")
+
+    expect(@info['data']['attributes']['weekly'][0]['precip_chance']).to eq("1%")
+    expect(@info['data']['attributes']['weekly'][1]['precip_chance']).to eq("2%")
+    expect(@info['data']['attributes']['weekly'][2]['precip_chance']).to eq("1%")
+    expect(@info['data']['attributes']['weekly'][3]['precip_chance']).to eq("2%")
+
+    expect(@info['data']['attributes']['weekly'][0]['high']).to eq(51)
+    expect(@info['data']['attributes']['weekly'][1]['high']).to eq(49)
+    expect(@info['data']['attributes']['weekly'][2]['high']).to eq(51)
+    expect(@info['data']['attributes']['weekly'][3]['high']).to eq(49)
+
+    expect(@info['data']['attributes']['weekly'][0]['low']).to eq(24)
+    expect(@info['data']['attributes']['weekly'][1]['low']).to eq(24)
+    expect(@info['data']['attributes']['weekly'][2]['low']).to eq(30)
+    expect(@info['data']['attributes']['weekly'][3]['low']).to eq(22)
   end
 end
