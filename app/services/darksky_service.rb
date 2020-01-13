@@ -7,6 +7,10 @@ class DarkskyService
     forecast_data['currently']
   end
 
+  def daily
+    forecast_data
+  end
+
   private
 
   attr_reader :coordinates
