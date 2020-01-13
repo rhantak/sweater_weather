@@ -11,6 +11,10 @@ class DarkskyService
     forecast_data
   end
 
+  def hourly
+    forecast_data['hourly']['data'][0..23]
+  end
+
   private
 
   attr_reader :coordinates
