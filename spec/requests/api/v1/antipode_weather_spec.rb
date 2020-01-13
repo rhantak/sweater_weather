@@ -24,9 +24,10 @@ describe 'Weather API' do
     info = JSON.parse(response.body)
 
     expect(info['data']['type']).to eq("antipode")
+
     expect(info['data']['attributes']['location_name']).to eq("RP69, Jujuy, Argentina")
     expect(info['data']['attributes']['forecast']['summary']).to eq("Overcast")
-    expect(info['data']['attributes']['forecast']['current_temperature']).to eq("60")
+    expect(info['data']['attributes']['forecast']['current_temperature']).to eq(60)
     expect(info['data']['attributes']['search_location']).to eq("Hong Kong")
   end
 end
