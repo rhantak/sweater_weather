@@ -13,6 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'faraday'
 gem 'fast_jsonapi'
 gem 'figaro'
+gem 'bcrypt'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
