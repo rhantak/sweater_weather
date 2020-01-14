@@ -29,6 +29,6 @@ describe 'weather api' do
 
     expect(response).to have_http_status(400)
 
-    expect(user_info['errors'].first['title']).to eq("Bad Credentials")
+    expect(user_info['errors'].first['detail']).to eq("Bad Credentials")
   end
 end

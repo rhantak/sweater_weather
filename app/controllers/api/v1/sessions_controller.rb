@@ -14,7 +14,7 @@ class Api::V1::SessionsController < ApplicationController
     {errors:
     [{
       "status": 400,
-      "title": "Bad Credentials"
+      "detail": "Bad Credentials"
     }]}
   end
 end
