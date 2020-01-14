@@ -6,7 +6,7 @@ class HourlyForecast
   def hourly_data
     @hours.map do |hour|
       {
-        "time": Time.at(hour['time']).strftime("%I%p"),
+        "time": Time.at(hour['time']).in_time_zone(hour['timezone']).strftime("%I%p"),
         "temp": hour['temperature'].round
       }
     end

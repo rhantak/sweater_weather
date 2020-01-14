@@ -2,8 +2,8 @@ class CurrentForecast
   attr_reader :time, :date, :temp, :weather
 
   def initialize(current_weather)
-    @time = Time.at(current_weather['time']).strftime("%I:%M%p")
-    @date = Time.at(current_weather['time']).strftime("%m/%d")
+    @time = Time.at(current_weather['time']).in_time_zone(current_weather['timezone']).strftime("%I:%M%p")
+    @date = Time.at(current_weather['time']).in_time_zone(current_weather['timezone']).strftime("%m/%d")
     @temp = current_weather['temperature'].round
     @weather = current_weather['summary']
     @feels_like = current_weather['apparentTemperature'].round

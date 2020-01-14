@@ -14,7 +14,7 @@ class WeeklyForecast
   def weekly_data
     @days.map do |day|
       {
-        "day": Time.at(day['time']).strftime("%A"),
+        "day": Time.at(day['time']).in_time_zone(day['timezone']).strftime("%A"),
         "weather": day['summary'],
         "precip_type": day['precipType'],
         "precip_chance": "#{(day['precipProbability']*100).round}%",
