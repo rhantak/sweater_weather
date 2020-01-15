@@ -1,6 +1,4 @@
 class WeeklyForecast
-  attr_reader :first, :second, :third, :fourth, :fifth, :sixth, :seventh
-
   def initialize(weather)
     @days = weather['daily']['data'][1..7]
   end
