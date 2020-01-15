@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
   def error_message(user)
     {errors:
       [{
-        "status": 400,
+        "status": 401,
         "detail": "#{user.errors.full_messages.to_sentence}"
         }]
     }
